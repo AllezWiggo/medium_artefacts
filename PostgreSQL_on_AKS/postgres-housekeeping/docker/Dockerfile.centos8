@@ -1,0 +1,24 @@
+FROM centos:8
+
+ENV USER postgres
+ENV POSTGRES_DB postgres
+ENV POSTGRES_HOST localhost
+ENV POSTGRES_PORT 5432
+ENV POSTGRES_USER postgres
+ENV POSTGRES_PASSWORD postgres
+ENV PATH="$PATH:/usr/pgsql-12/bin"
+
+COPY exec.sh /
+RUN groupadd -g 1000 $USER \
+    && useradd -d /home/$USER -g $USER -u 1000 $USER \
+    && sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-* \
+    && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-* \
+    && dnf update -y \
+    && dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm \
+    && dnf install -y postgresql12 \
+    && chown -R $USER:$USER /usr/pgsql-12 \
+    && chmod +x /exec.sh && \
+    chown $USER:$USER /exec.sh
+
+USER $USER
+CMD ["sh","/exec.sh"]

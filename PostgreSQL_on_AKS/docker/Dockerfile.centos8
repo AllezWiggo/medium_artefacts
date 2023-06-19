@@ -1,0 +1,39 @@
+FROM centos:8
+
+ENV USER postgres
+ENV PGROOT /var/lib/postgresql
+ENV PGDATA $PGROOT/data
+ENV POSTGRES_USER postgres
+ENV POSTGRES_PASSWORD postgres
+ENV POSTGRES_DB postgres
+ENV GOSU_VERSION=1.16
+ENV LANG en_US.utf8
+
+COPY docker-entrypoint.sh /usr/local/bin/
+
+RUN groupadd -g 1000 $USER \
+    && useradd -d /home/$USER -g $USER -u 1000 $USER \
+    && sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-* \
+    && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-* \
+    && dnf update -y \
+    && dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm \
+    && dnf -qy module disable postgresql \
+    && dnf install -y postgresql12 postgresql12-server \
+    && mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 777 "$PGDATA" \
+	&& chmod +x /usr/local/bin/docker-entrypoint.sh \
+    && gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
+    && curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64" \
+    && curl -o /usr/local/bin/gosu.asc -SL "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-amd64.asc" \
+    && gpg --verify /usr/local/bin/gosu.asc \
+    && rm /usr/local/bin/gosu.asc \
+    && rm -r /root/.gnupg/ \
+    && chmod +x /usr/local/bin/gosu \
+    && mkdir /docker-entrypoint-initdb.d \
+    && chown $USER:$USER /docker-entrypoint-initdb.d
+
+ENV PATH="$PATH:/usr/pgsql-12/bin"
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+STOPSIGNAL SIGINT
+EXPOSE 5432
+CMD ["postgres"]

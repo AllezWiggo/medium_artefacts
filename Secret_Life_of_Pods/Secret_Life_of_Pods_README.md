@@ -6,7 +6,7 @@
 ## Install Helm Repos
 
 ```
-helm repo add prometheus https://raw.githubusercontent.com/AllezWiggo/medium_artefacts/main/Secret_Life_of_Pods/Helm/grafana
+helm repo add grafana https://raw.githubusercontent.com/AllezWiggo/medium_artefacts/main/Secret_Life_of_Pods/Helm/grafana
 
 helm repo add prometheus https://raw.githubusercontent.com/AllezWiggo/medium_artefacts/main/Secret_Life_of_Pods/Helm/prometheus
 ```

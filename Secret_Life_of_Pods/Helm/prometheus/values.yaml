@@ -84,4 +84,4 @@ affinity: {}
 storage:
   class: "manual"
   capacity: "10Mi"
-  hostPath: "/Users/manas/Work/Docker/Deploy/Prometheus/Data"
+  hostPath: "/mnt/store/Prometheus/Data"

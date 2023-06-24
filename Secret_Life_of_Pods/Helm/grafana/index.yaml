@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  grafana:
+  - apiVersion: v2
+    appVersion: 10.0.1
+    created: "2023-06-24T21:27:17.593463+02:00"
+    description: A Helm chart for Kubernetes
+    digest: cae82e048e0965cee22f0ce39b348176a5eb6b0de9bc86f3cd1faa9ce752b7fd
+    name: grafana
+    type: application
+    urls:
+    - https://github.com/AllezWiggo/medium_artefacts/tree/main/Secret_Life_of_Pods/Helm/grafana/grafana-10.0.1.tgz
+    version: 10.0.1
+generated: "2023-06-24T21:27:17.592475+02:00"

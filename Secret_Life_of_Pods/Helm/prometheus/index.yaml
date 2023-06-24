@@ -3,12 +3,12 @@ entries:
   prometheus:
   - apiVersion: v2
     appVersion: 2.44.0
-    created: "2023-06-24T22:18:24.069456+02:00"
+    created: "2023-06-24T22:29:59.767611+02:00"
     description: A Helm chart for Kubernetes
-    digest: 5021c19e78bc601d9f0830af053f04fd5039cbe57ce01f668012d0cb3cb23da0
+    digest: 7b61d1a2743f75e430ce4a0388cd9329a85e9c5b573dffafde03aca6cd186152
     name: prometheus
     type: application
     urls:
     - https://raw.githubusercontent.com/AllezWiggo/medium_artefacts/main/Secret_Life_of_Pods/Helm/prometheus/prometheus-2.44.0.tgz
     version: 2.44.0
-generated: "2023-06-24T22:18:24.067449+02:00"
+generated: "2023-06-24T22:29:59.766318+02:00"

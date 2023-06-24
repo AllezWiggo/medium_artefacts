@@ -9,6 +9,6 @@ entries:
     name: grafana
     type: application
     urls:
-    - https://github.com/AllezWiggo/medium_artefacts/tree/main/Secret_Life_of_Pods/Helm/grafana/grafana-10.0.1.tgz
+    - https://raw.githubusercontent.com/AllezWiggo/medium_artefacts/main/Secret_Life_of_Pods/Helm/grafana/grafana-10.0.1.tgz
     version: 10.0.1
 generated: "2023-06-24T21:27:17.592475+02:00"

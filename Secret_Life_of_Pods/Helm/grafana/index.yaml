@@ -3,12 +3,12 @@ entries:
   grafana:
   - apiVersion: v2
     appVersion: 10.0.1
-    created: "2023-06-24T21:27:17.593463+02:00"
+    created: "2023-06-24T21:51:56.29088+02:00"
     description: A Helm chart for Kubernetes
-    digest: cae82e048e0965cee22f0ce39b348176a5eb6b0de9bc86f3cd1faa9ce752b7fd
+    digest: 412a8e302673d3d9bd54e70412a382a4dd3e620a7060c8ba4f6595729731a2b1
     name: grafana
     type: application
     urls:
     - https://raw.githubusercontent.com/AllezWiggo/medium_artefacts/main/Secret_Life_of_Pods/Helm/grafana/grafana-10.0.1.tgz
     version: 10.0.1
-generated: "2023-06-24T21:27:17.592475+02:00"
+generated: "2023-06-24T21:51:56.289396+02:00"

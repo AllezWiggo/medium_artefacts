@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  restarts:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2023-06-24T23:06:19.274447+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 3a01d793b5931a294d5b0be3ac1af42781d06ec2dcbbc6290f7ec21829cf3bf9
+    name: restarts
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/AllezWiggo/medium_artefacts/main/Secret_Life_of_Pods/Helm/restarts/restarts-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-06-24T23:06:19.272337+02:00"
